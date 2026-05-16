@@ -15,41 +15,43 @@ public class StatsService {
         return averageAmount;
     }
 
-    public long peakSalesDay (long[] sales) {
+    public int peakSalesDay(long[] sales) {
         int maxSalesDay = 0;
-        for (int i = 0; i< sales.length; i++) {
-            if (sales [i] >= sales [maxSalesDay]) {
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] >= sales[maxSalesDay]) {
                 maxSalesDay = i;
             }
         }
         return maxSalesDay + 1;
     }
 
-    public long minSalesDay (long[] sales) {
+    public int minSalesDay(long[] sales) {
         int minSalesDay = 0;
         for (int i = 0; i < sales.length; i++) {
-            if (sales [i] <= sales [minSalesDay]) {
+            if (sales[i] <= sales[minSalesDay]) {
                 minSalesDay = i;
             }
         }
         return minSalesDay + 1;
     }
-    public long salesLessThanAverage (long[] sales) {
+
+    public int salesLessThanAverage(long[] sales) {
         long avg = averageAmountPerMonth(sales);
-        int lessAverageDays =0;
+        int lessAverageDays = 0;
         for (int i = 0; i < sales.length; i++) {
-            if (sales [i] < avg) {
-                lessAverageDays ++;
+            if (sales[i] < avg) {
+                lessAverageDays++;
             }
         }
         return lessAverageDays;
     }
-    public long salesMoreThanAverage (long[] sales) {
+
+    public int salesMoreThanAverage(long[] sales) {
         long avg = averageAmountPerMonth(sales);
         int moreAverageDays = 0;
         for (int i = 0; i < sales.length; i++) {
-            if (sales [i] < avg) {
-                moreAverageDays ++;
+            if (sales[i] < avg) {
+                moreAverageDays++;
             }
         }
         return moreAverageDays;
